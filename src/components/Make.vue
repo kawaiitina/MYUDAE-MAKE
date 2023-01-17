@@ -136,8 +136,8 @@ onMounted(() => {
       <template v-for="longNote in score.longNotes[TOP]">
         <div
           class="longnote-top"
-          :style="`left: ${384 + (192 / 12) * longNote.start}px; width: ${
-            (192 / 12) * (longNote.end - longNote.start) + 24
+          :style="`left: ${384 + (192 / 12) * longNote[0]}px; width: ${
+            (192 / 12) * (longNote[1] - longNote[0]) + 24
           }px`"
         ></div>
       </template>
@@ -167,8 +167,8 @@ onMounted(() => {
       <template v-for="longNote in score.longNotes[BOTTOM]">
         <div
           class="longnote-bottom"
-          :style="`left: ${384 + (192 / 12) * longNote.start}px; width: ${
-            (192 / 12) * (longNote.end - longNote.start) + 24
+          :style="`left: ${384 + (192 / 12) * longNote[0]}px; width: ${
+            (192 / 12) * (longNote[1] - longNote[0]) + 24
           }px`"
         ></div>
       </template>

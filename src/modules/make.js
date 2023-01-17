@@ -33,14 +33,14 @@ export default class Score {
     this.save();
   }
   addLongNote(lane, startBeat, endBeat) {
-    this.longNotes[lane].push({ start: startBeat, end: endBeat });
-    this.longNotes[lane].sort((a, b) => a.start - b.start);
+    this.longNotes[lane].push([startBeat, endBeat]);
+    this.longNotes[lane].sort((a, b) => a[0] - b[0]);
 
     this.save();
   }
   deleteLongNote(lane, beat) {
     const index = this.longNotes[lane].findIndex((longNote) => {
-      return longNote.start === beat || longNote.end === beat;
+      return longNote[0] === beat || longNote[1] === beat;
     });
     if (index === -1) {
       return;
