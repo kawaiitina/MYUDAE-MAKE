@@ -13,6 +13,12 @@ const BOTTOM = "bottom";
 const scoreString = computed(() => {
   return score.value.toString();
 });
+const beatIndex = computed(() => {
+  return (beat) => {
+    const index = score.value.bars.findIndex((bar) => bar === beat - 1) + 1;
+    return index !== 0 ? index : "";
+  };
+});
 
 function handleclick(lane, beat, subbeat) {
   score.value.addNote(lane, beat * 12 + (subbeat * 48) / beatPerMeasure.value);
@@ -103,7 +109,7 @@ onMounted(() => {
         v-for="beat in score.beats"
         class="bar"
         :class="score.bars.includes(beat - 1) ? 'bar-red' : 'bar-gray'"
-        :style="`left: ${393 + (beat - 1) * 192}px;`"
+        :style="`left: ${395 + (beat - 1) * 192}px;`"
         @click="handleBarClick(beat - 1)"
       ></div>
       <template v-for="beat in score.beats">
@@ -167,13 +173,19 @@ onMounted(() => {
         ></div>
       </template>
     </div>
-    <div class="row beat-index-container">
-      <div v-for="beat in score.beats" class="beat-index">
-        <span class="text-h6 cursor-pointer" @click="handleBarClick(beat - 1)">
-          {{ beat - 1 }}
-        </span>
-      </div>
-    </div>
+    <ul class="row beat-index-list">
+      <li
+        v-for="beat in score.beats"
+        class="beat-index-container"
+        :style="`left: ${384 - 12 + (beat - 1) * 192}px;`"
+      >
+        <q-btn
+          class="beat-index"
+          @click="handleBarClick(beat - 1)"
+          :label="beatIndex(beat)"
+        />
+      </li>
+    </ul>
   </div>
 
   <q-card class="q-ma-md">
@@ -318,10 +330,20 @@ onMounted(() => {
 .pink {
   background-color: HotPink;
 }
-.beat-index-container {
+.beat-index-list {
   height: 48px;
+  user-select: none;
+}
+.beat-index-container {
+  width: 192px;
+  position: absolute;
+  cursor: pointer;
 }
 .beat-index {
-  width: 192px;
+  width: 48px;
+}
+ul {
+  padding-left: 0;
+  list-style-type: none;
 }
 </style>
