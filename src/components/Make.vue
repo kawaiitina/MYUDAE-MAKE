@@ -337,7 +337,6 @@ onMounted(() => {
 .beat-index-container {
   width: 192px;
   position: absolute;
-  cursor: pointer;
 }
 .beat-index {
   width: 48px;
