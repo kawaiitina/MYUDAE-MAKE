@@ -82,7 +82,7 @@ onMounted(() => {
 
   document.querySelector("#score").addEventListener("wheel", function (event) {
     event.preventDefault();
-    this.scrollLeft += (event.deltaY / 100) * 200;
+    this.scrollLeft += (event.deltaY / 100) * 192;
   });
   if (localStorage.getItem("save")) {
     score.value.load(localStorage.getItem("save"));
