@@ -63,7 +63,7 @@ function copyToClipboard() {
 }
 
 function handleKeydown(event) {
-  if (event.repeat) {
+  if (event.repeat || event.target.tagName === "INPUT") {
     return;
   }
   if (event.code === "Insert") {

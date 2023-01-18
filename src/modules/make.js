@@ -74,22 +74,34 @@ export default class Score {
       index = this.bars.findIndex((bar) => bar > this.beats - 1);
     }
 
+    index = this.notes.top.findIndex((note) => note > (this.beats - 1) * 12);
+    while (index !== -1) {
+      this.notes.top.splice(index, 1);
+      index = this.notes.top.findIndex((note) => note > (this.beats - 1) * 12);
+    }
+    index = this.notes.bottom.findIndex((note) => note > (this.beats - 1) * 12);
+    while (index !== -1) {
+      this.notes.bottom.splice(index, 1);
+      index = this.notes.bottom.findIndex(
+        (note) => note > (this.beats - 1) * 12
+      );
+    }
     index = this.longNotes.top.findIndex(
-      (longNote) => longNote.end > (this.beats - 1) * 12
+      (longNote) => longNote[1] > (this.beats - 1) * 12
     );
     while (index !== -1) {
       this.longNotes.top.splice(index, 1);
       index = this.longNotes.top.findIndex(
-        (longNote) => longNote.end > (this.beats - 1) * 12
+        (longNote) => longNote[1] > (this.beats - 1) * 12
       );
     }
     index = this.longNotes.bottom.findIndex(
-      (longNote) => longNote.end > (this.beats - 1) * 12
+      (longNote) => longNote[1] > (this.beats - 1) * 12
     );
     while (index !== -1) {
       this.longNotes.bottom.splice(index, 1);
       index = this.longNotes.bottom.findIndex(
-        (longNote) => longNote.end > (this.beats - 1) * 12
+        (longNote) => longNote[1] > (this.beats - 1) * 12
       );
     }
 
