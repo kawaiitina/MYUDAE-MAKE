@@ -136,6 +136,15 @@ export default class Score {
     this.bars = parsed.bars;
   }
   reset() {
+    if (confirm("악보를 초기화할까요?")) {
+      this.beats = 16;
+      this.notes = { top: [], bottom: [] };
+      this.longNotes = { top: [], bottom: [] };
+      this.bars = [0, 4, 8, 12];
+      this.save();
+    }
+  }
+  resetAll() {
     if (confirm("초기화할까요?")) {
       this.title = "";
       this.artist = "";

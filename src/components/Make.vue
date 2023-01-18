@@ -204,40 +204,38 @@ onMounted(() => {
           label="내보내기"
           type="textarea"
         />
-        <q-btn
-          color="white"
-          text-color="black"
-          label="복사"
-          @click="copyToClipboard"
-        />
+        <q-btn label="복사" @click="copyToClipboard" />
       </div>
       <div class="column">
         <q-input outlined v-model="loadStr" label="불러오기" type="textarea" />
-        <q-btn
-          color="white"
-          text-color="black"
-          label="불러오기"
-          @click="score.load(loadStr)"
-        />
+        <q-btn label="불러오기" @click="score.load(loadStr)" />
       </div>
     </q-card-section>
 
     <q-separator />
 
     <q-card-section>
-      <div class="column">
+      <div class="column q-gutter-md">
         <q-btn
-          color="white"
-          text-color="black"
-          label="초기화"
+          color="red-5"
+          text-color="white"
+          label="악보 초기화"
           @click="score.reset()"
         />
+        <q-btn
+          color="red-5"
+          text-color="white"
+          label="전체 초기화"
+          @click="score.resetAll()"
+        />
       </div>
     </q-card-section>
 
     <q-separator />
     <q-card-section>
-      <q-btn label="유튜브 플레이어 보기" @click="youtubeDialog = true" />
+      <div class="column">
+        <q-btn label="유튜브 플레이어 보기" @click="youtubeDialog = true" />
+      </div>
     </q-card-section>
   </q-card>
   <q-dialog v-model="youtubeDialog">
