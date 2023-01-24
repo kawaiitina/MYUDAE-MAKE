@@ -95,11 +95,11 @@ onMounted(() => {
     <q-input v-model="score.title" label="제목" />
     <q-input v-model="score.artist" label="아티스트" />
     <q-input v-model.number="score.bpm" type="number" label="BPM" />
-    <q-input v-model="score.src" label="유튜브 id" />
+    <q-input v-model="score.src" label="유튜브 영상 id" />
     <q-input
-      v-model.number="score.offset"
+      v-model.number="score.videoStartTime"
       type="number"
-      label="음악 시작 시간 (초)"
+      label="유튜브 영상 시작 시간 (초)"
     />
   </div>
 

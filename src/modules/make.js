@@ -7,7 +7,7 @@ export default class Score {
     this.artist = "";
     this.bpm = 0;
     this.src = "";
-    this.offset = 0;
+    this.videoStartTime = 0;
     this.beats = 16;
     this.notes = { top: [], bottom: [] };
     this.longNotes = { top: [], bottom: [] };
@@ -113,7 +113,7 @@ export default class Score {
       artist: this.artist,
       bpm: this.bpm,
       src: this.src,
-      offset: this.offset,
+      videoStartTime: this.videoStartTime,
       beats: this.beats,
       notes: this.notes,
       longNotes: this.longNotes,
@@ -129,7 +129,7 @@ export default class Score {
     this.artist = parsed.artist;
     this.bpm = parsed.bpm;
     this.src = parsed.src;
-    this.offset = parsed.offset;
+    this.videoStartTime = parsed.videoStartTime;
     this.beats = parsed.beats;
     this.notes = parsed.notes;
     this.longNotes = parsed.longNotes;
@@ -150,7 +150,7 @@ export default class Score {
       this.artist = "";
       this.bpm = 0;
       this.src = "";
-      this.offset = 0;
+      this.videoStartTime = 0;
       this.beats = 16;
       this.notes = { top: [], bottom: [] };
       this.longNotes = { top: [], bottom: [] };
